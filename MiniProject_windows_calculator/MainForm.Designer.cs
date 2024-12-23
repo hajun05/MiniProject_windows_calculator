@@ -67,6 +67,7 @@
             this.RHS_Output.Size = new System.Drawing.Size(358, 71);
             this.RHS_Output.TabIndex = 0;
             this.RHS_Output.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.RHS_Output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RHS_Output_KeyPress);
             // 
             // LHS_Output
             // 
@@ -78,6 +79,7 @@
             this.LHS_Output.Size = new System.Drawing.Size(357, 43);
             this.LHS_Output.TabIndex = 1;
             this.LHS_Output.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.LHS_Output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LHS_Output_KeyPress);
             // 
             // Modulo
             // 
@@ -162,6 +164,7 @@
             this.Division.TabIndex = 9;
             this.Division.Text = "÷";
             this.Division.UseVisualStyleBackColor = true;
+            this.Division.Click += new System.EventHandler(this.Division_Click);
             // 
             // Seven
             // 
@@ -202,6 +205,7 @@
             this.Multiplication.TabIndex = 13;
             this.Multiplication.Text = "×";
             this.Multiplication.UseVisualStyleBackColor = true;
+            this.Multiplication.Click += new System.EventHandler(this.Multiplication_Click);
             // 
             // Four
             // 
@@ -242,6 +246,7 @@
             this.Subtraction.TabIndex = 17;
             this.Subtraction.Text = "−";
             this.Subtraction.UseVisualStyleBackColor = true;
+            this.Subtraction.Click += new System.EventHandler(this.Subtraction_Click);
             // 
             // One
             // 
@@ -282,6 +287,7 @@
             this.Addition.TabIndex = 21;
             this.Addition.Text = "+";
             this.Addition.UseVisualStyleBackColor = true;
+            this.Addition.Click += new System.EventHandler(this.Addition_Click);
             // 
             // PlusMinus
             // 

@@ -95,6 +95,64 @@ namespace MiniProject_windows_calculator
             //값이 없다면 아무 실행 X
         }
 
+        // 나누기 버튼
+        private void Division_Click(object sender, EventArgs e)
+        {
+            ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+            if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
+            {
+                string result = LHS_Output.Text.Split(' ');
+                string operand = RHS_Output.Text;
+            }
+        }
+        
+        // 곱하기 버튼
+        private void Multiplication_Click(object sender, EventArgs e)
+        {
+            ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+            if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
+            {
+                string[] expression = LHS_Output.Text.Split(' ');
+                string operand = RHS_Output.Text;
+            }
+        }
+        
+        // 빼기 버튼
+        private void Subtraction_Click(object sender, EventArgs e)
+        {
+            ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+            if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
+            {
+                string[] expression = LHS_Output.Text.Split(' ');
+                string operand = RHS_Output.Text;
+            }
+        }
+
+        // 더하기 버튼
+        private void Addition_Click(object sender, EventArgs e)
+        {
+            ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+            if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
+            {
+                string[] expression = LHS_Output.Text.Split(' ');
+                string operand = RHS_Output.Text;
+            }
+        }
+
+        // 직접 입력(커서) 방지
+        private void LHS_Output_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true; 
+        }
+
+        // 숫자, 백스페이스, 소수점 이외 직접 입력(커서) 방지
+        private void RHS_Output_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back) || e.KeyChar == '.'))
+            {
+                e.Handled= true; 
+            }
+        }
     }
 }
 
