@@ -88,6 +88,7 @@
             this.Modulo.TabIndex = 2;
             this.Modulo.Text = "%";
             this.Modulo.UseVisualStyleBackColor = true;
+            this.Modulo.Click += new System.EventHandler(this.Modulo_Click);
             // 
             // CE
             // 
@@ -128,6 +129,7 @@
             this.Fraction.TabIndex = 6;
             this.Fraction.Text = "1/x";
             this.Fraction.UseVisualStyleBackColor = true;
+            this.Fraction.Click += new System.EventHandler(this.Fraction_Click);
             // 
             // SQR
             // 
@@ -138,6 +140,7 @@
             this.SQR.TabIndex = 7;
             this.SQR.Text = "x²";
             this.SQR.UseVisualStyleBackColor = true;
+            this.SQR.Click += new System.EventHandler(this.SQR_Click);
             // 
             // SquareRoot
             // 
@@ -148,6 +151,7 @@
             this.SquareRoot.TabIndex = 8;
             this.SquareRoot.Text = "√x";
             this.SquareRoot.UseVisualStyleBackColor = true;
+            this.SquareRoot.Click += new System.EventHandler(this.SquareRoot_Click);
             // 
             // Division
             // 
@@ -288,6 +292,7 @@
             this.PlusMinus.TabIndex = 22;
             this.PlusMinus.Text = "+/−";
             this.PlusMinus.UseVisualStyleBackColor = true;
+            this.PlusMinus.Click += new System.EventHandler(this.PlusMinus_Click);
             // 
             // Zero
             // 
@@ -308,6 +313,7 @@
             this.DecimalPoint.TabIndex = 24;
             this.DecimalPoint.Text = ".";
             this.DecimalPoint.UseVisualStyleBackColor = true;
+            this.DecimalPoint.Click += new System.EventHandler(this.DecimalPoint_Click);
             // 
             // Assignment
             // 
