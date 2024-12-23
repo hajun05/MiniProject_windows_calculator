@@ -67,6 +67,7 @@
             this.RHS_Output.Size = new System.Drawing.Size(358, 71);
             this.RHS_Output.TabIndex = 0;
             this.RHS_Output.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.RHS_Output.Enter += new System.EventHandler(this.RHS_Output_Enter);
             this.RHS_Output.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.RHS_Output_KeyPress);
             // 
             // LHS_Output
@@ -331,6 +332,7 @@
             this.Assignment.TabIndex = 25;
             this.Assignment.Text = "=";
             this.Assignment.UseVisualStyleBackColor = false;
+            this.Assignment.Click += new System.EventHandler(this.Assignment_Click);
             // 
             // Calculator
             // 

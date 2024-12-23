@@ -98,60 +98,97 @@ namespace MiniProject_windows_calculator
         // 나누기 버튼
         private void Division_Click(object sender, EventArgs e)
         {
-            ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+            // 피연산자 값(숫자)을 입력하지 않았거나 오류로 값이 사라진 상황에선 연산 실행 생략
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                string result = LHS_Output.Text.Split(' ');
-                string operand = RHS_Output.Text;
+                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+
+                string result = elementaryArithmetic.division(RHS_Output.Text);
+                LHS_Output.Text += result;
             }
         }
         
         // 곱하기 버튼
         private void Multiplication_Click(object sender, EventArgs e)
         {
-            ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+            // 피연산자 값(숫자)을 입력하지 않았거나 오류로 값이 사라진 상황에선 연산 실행 생략
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                string[] expression = LHS_Output.Text.Split(' ');
-                string operand = RHS_Output.Text;
+                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+
+                string result = elementaryArithmetic.multiplication(RHS_Output.Text);
+                LHS_Output.Text += result;
             }
         }
         
         // 빼기 버튼
         private void Subtraction_Click(object sender, EventArgs e)
         {
-            ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+            // 피연산자 값(숫자)을 입력하지 않았거나 오류로 값이 사라진 상황에선 연산 실행 생략
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                string[] expression = LHS_Output.Text.Split(' ');
-                string operand = RHS_Output.Text;
+                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic(); 
+
+                string result = elementaryArithmetic.subtraction(RHS_Output.Text);
+                LHS_Output.Text += result;
             }
         }
 
         // 더하기 버튼
         private void Addition_Click(object sender, EventArgs e)
         {
-            ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+            // 피연산자 값(숫자)을 입력하지 않았거나 오류로 값이 사라진 상황에선 연산 실행 생략
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                string[] expression = LHS_Output.Text.Split(' ');
-                string operand = RHS_Output.Text;
+                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+
+                string result = elementaryArithmetic.addition(RHS_Output.Text);
+                LHS_Output.Text += result;
             }
         }
 
-        // 직접 입력(커서) 방지
+        // = 버튼. 수식의 계산값 출력
+        private void Assignment_Click(object sender, EventArgs e)
+        {
+            // 피연산자 값(숫자)을 입력하지 않았거나 오류로 값이 사라진 상황에선 연산 실행 생략
+            if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
+            {
+                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+
+                string result = elementaryArithmetic.assignment(RHS_Output.Text);
+                LHS_Output.Text += result;
+            }
+        }
+
+        // LHS_Output창에 직접 입력(커서) 방지
         private void LHS_Output_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true; 
         }
 
-        // 숫자, 백스페이스, 소수점 이외 직접 입력(커서) 방지
+        // RHS_Output창에 숫자, 백스페이스, 소수점 이외 직접 입력(커서) 방지
         private void RHS_Output_KeyPress(object sender, KeyPressEventArgs e)
         {
+            // RHS 출력값이 "0"(아무것도 입력 X)한 상태일 때 공백으로 수정. 0이 맨 앞으로 가는 상황 방지
+            if (RHS_Output.Text == "0")
+            {
+                RHS_Output.Text = "";
+            }
             if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back) || e.KeyChar == '.'))
             {
-                e.Handled= true; 
+                e.Handled = true; 
             }
+        }
+
+        private void RHS_Output_Enter(object sender, EventArgs e)
+        {
+            // RHS 출력값이 ""(모든 입력값 삭제)한 상태일 때 "0"으로 수정. RHS 출력값이 완전히 비는 상황 방지
+            if (RHS_Output.Text == "")
+            {
+                RHS_Output.Text = "0";
+            }
+            // 커서가 항상 오른쪽 끝에 위치하도록 고정
+            RHS_Output.SelectionStart = RHS_Output.Text.Length;
         }
     }
 }
