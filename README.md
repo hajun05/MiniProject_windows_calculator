@@ -32,12 +32,13 @@ WinForms GUI 설계
 
 파일 구조
 Project/
-├── Program.cs // 메인 실행 파일
-├── MainForm.cs // WinForms GUI 설계 및 메인 로직
-├── ArithmeticOperations.cs // 사칙연산 로직
-├── UnaryOperations.cs // 단항 연산 로직 (제곱, 제곱근, 음수 처리 등)
-├── NumberButtons.cs // 숫자 버튼 로직
-├── ClearFunction.cs // 지우기 기능 로직
+  ├── Program.cs // 메인 실행 파일
+  ├── MainForm.cs // WinForms GUI 설계 및 메인 로직
+  ├── ArithmeticOperations.cs // 사칙연산 로직
+  ├── UnaryOperations.cs // 단항 연산 로직 (제곱, 제곱근, 음수 처리 등)
+  ├── NumberButtons.cs // 숫자 버튼 로직
+  ├── ClearFunction.cs // 지우기 기능 로직
+  
 역할 분담:
 - UI, 사칙연산 : 하준
 - 숫자 버튼 0~9 : 현준
