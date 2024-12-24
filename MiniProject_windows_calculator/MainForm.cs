@@ -36,6 +36,7 @@ namespace MiniProject_windows_calculator
                 result = unaryOperations.Percent(RHS_Output.Text, LHS_Output.Text);
                 RHS_Output.Text = result[0];
                 LHS_Output.Text = result[1];
+                past_operator = '_';
             }
             //값이 없다면 아무 실행 X
         }
@@ -48,7 +49,16 @@ namespace MiniProject_windows_calculator
             {
                 string[] result = unaryOperations.Fraction(RHS_Output.Text, LHS_Output.Text);
                 RHS_Output.Text = result[0];
-                LHS_Output.Text = result[1];
+                if (past_operator == '=')
+                {
+                    LHS_Output.Text = "";
+                    LHS_Output.Text = result[1];
+                }
+                else
+                {
+                    LHS_Output.Text = result[1];
+                }
+                past_operator = '_';
             }
             //값이 없다면 아무 실행 X
         }
@@ -62,6 +72,7 @@ namespace MiniProject_windows_calculator
                 string[] result = unaryOperations.Square(RHS_Output.Text, LHS_Output.Text);
                 RHS_Output.Text = result[0];
                 LHS_Output.Text = result[1];
+                past_operator = '_';
             }
             //값이 없다면 아무 실행 X
         }
@@ -75,6 +86,7 @@ namespace MiniProject_windows_calculator
                 string[] result = unaryOperations.Root(RHS_Output.Text, LHS_Output.Text);
                 RHS_Output.Text = result[0];
                 LHS_Output.Text = result[1];
+                past_operator = '_';
             }
             //값이 없다면 아무 실행 X
         }
@@ -86,6 +98,7 @@ namespace MiniProject_windows_calculator
             {
                 string result = additionalFunction.DecimalPoint(RHS_Output.Text);
                 RHS_Output.Text = result;
+                past_operator = '_';
             }
         }
 
@@ -97,6 +110,7 @@ namespace MiniProject_windows_calculator
             {
                 string result = unaryOperations.NegativePositive(RHS_Output.Text);
                 RHS_Output.Text = result;
+                past_operator = '_';
             }
             //값이 없다면 아무 실행 X
         }
@@ -252,7 +266,10 @@ namespace MiniProject_windows_calculator
             {
                 ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
                 string result = elementaryArithmetic.assignment(LHS_Output.Text, RHS_Output.Text, past_operator);
-                LHS_Output.Text += RHS_Output.Text + " = ";
+                if (past_operator == '_')
+                    LHS_Output.Text = RHS_Output.Text + " = ";
+                else
+                    LHS_Output.Text += RHS_Output.Text + " = ";
                 RHS_Output.Text = result;
                 past_operator = '=';
                 recentlyInput = "oper";

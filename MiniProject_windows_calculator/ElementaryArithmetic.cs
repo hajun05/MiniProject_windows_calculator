@@ -104,8 +104,16 @@
         // = 버튼
         public string assignment(string expression, string new_operand, char past_operator)
         {
-            past_operator = '=';
-            return past_assignment(expression, new_operand);
+            if (past_operator == '_')
+            {
+                past_operator = '=';
+                return past_assignment("", new_operand);
+            }
+            else
+            {
+                past_operator = '=';
+                return past_assignment(expression, new_operand);
+            }
         }
     }
 }
