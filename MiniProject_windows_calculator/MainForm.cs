@@ -18,7 +18,7 @@ namespace MiniProject_windows_calculator
         NumberButtons numberButtons = new NumberButtons();
 
         //변수
-        string recentlyInput; // 숫자면 num, 연산자면 oper
+        string recentlyInput; // 숫자면 num, 연산자면 oper, =일때는 =
 
         public Calculator()
         {
@@ -126,6 +126,7 @@ namespace MiniProject_windows_calculator
         {
             RHS_Output.Text = "0";
             LHS_Output.Text = "";
+            recentlyInput = "";
         }
 
         // 백스페이스 버튼
@@ -138,70 +139,90 @@ namespace MiniProject_windows_calculator
         //숫자 0 버튼
         private void Zero_Click(object sender, EventArgs e)
         {
-            RHS_Output.Text = numberButtons.ZeroButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            string[] result = numberButtons.ZeroButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            RHS_Output.Text = result[0];
+            LHS_Output.Text= result[1]; 
             recentlyInput = "num";
         }
 
         // 숫자 1 버튼
         private void One_Click(object sender, EventArgs e)
         {
-            RHS_Output.Text = numberButtons.OneButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            string[] result = numberButtons.OneButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            RHS_Output.Text = result[0];
+            LHS_Output.Text = result[1];
             recentlyInput = "num";
         }
 
         //숫자 2버튼
         private void Two_Click(object sender, EventArgs e)
         {
-            RHS_Output.Text = numberButtons.TwoButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            string[] result = numberButtons.TwoButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            RHS_Output.Text = result[0];
+            LHS_Output.Text = result[1];
             recentlyInput = "num";
         }
 
         // 숫자 3버튼
         private void Three_Click(object sender, EventArgs e)
         {
-            RHS_Output.Text = numberButtons.ThreeButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            string[] result = numberButtons.ThreeButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            RHS_Output.Text = result[0];
+            LHS_Output.Text = result[1];
             recentlyInput = "num";
         }
 
         //숫자 4버튼
         private void Four_Click(object sender, EventArgs e)
         {
-            RHS_Output.Text = numberButtons.FourButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            string[] result = numberButtons.FourButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            RHS_Output.Text = result[0];
+            LHS_Output.Text = result[1];
             recentlyInput = "num";
         }
 
         // 숫자 5버튼
         private void Five_Click(object sender, EventArgs e)
         {
-            RHS_Output.Text = numberButtons.FiveButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            string[] result = numberButtons.FiveButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            RHS_Output.Text = result[0];
+            LHS_Output.Text = result[1];
             recentlyInput = "num";
         }
 
         // 숫자 6버튼
         private void Six_Click(object sender, EventArgs e)
         {
-            RHS_Output.Text = numberButtons.SixButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            string[] result = numberButtons.SixButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            RHS_Output.Text = result[0];
+            LHS_Output.Text = result[1];
             recentlyInput = "num";
         }
 
         // 숫자 7버튼
         private void Seven_Click(object sender, EventArgs e)
         {
-            RHS_Output.Text = numberButtons.SevenButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            string[] result = numberButtons.SevenButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            RHS_Output.Text = result[0];
+            LHS_Output.Text = result[1];
             recentlyInput = "num";
         }
 
         // 숫자 8버튼
         private void Eight_Click(object sender, EventArgs e)
         {
-            RHS_Output.Text = numberButtons.EightButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            string[] result = numberButtons.EightButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            RHS_Output.Text = result[0];
+            LHS_Output.Text = result[1];
             recentlyInput = "num";
         }
 
         //숫자 9버튼
         private void Nine_Click(object sender, EventArgs e)
         {
-            RHS_Output.Text = numberButtons.NineButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            string[] result = numberButtons.NineButton(RHS_Output.Text, LHS_Output.Text, recentlyInput);
+            RHS_Output.Text = result[0];
+            LHS_Output.Text = result[1];
             recentlyInput = "num";
         }
 
@@ -272,7 +293,7 @@ namespace MiniProject_windows_calculator
                     LHS_Output.Text += RHS_Output.Text + " = ";
                 RHS_Output.Text = result;
                 past_operator = '=';
-                recentlyInput = "oper";
+                recentlyInput = "=";
             }
         }
         // LHS_Output창에 직접 입력(커서) 방지
