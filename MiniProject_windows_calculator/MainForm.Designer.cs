@@ -102,6 +102,7 @@
             this.CE.TabIndex = 3;
             this.CE.Text = "CE";
             this.CE.UseVisualStyleBackColor = true;
+            this.CE.Click += new System.EventHandler(this.CE_Click);
             // 
             // C
             // 
@@ -112,6 +113,7 @@
             this.C.TabIndex = 4;
             this.C.Text = "C";
             this.C.UseVisualStyleBackColor = true;
+            this.C.Click += new System.EventHandler(this.C_Click);
             // 
             // Delete
             // 
@@ -122,6 +124,7 @@
             this.Delete.TabIndex = 5;
             this.Delete.Text = "⌫";
             this.Delete.UseVisualStyleBackColor = true;
+            this.Delete.Click += new System.EventHandler(this.Delete_Click);
             // 
             // Fraction
             // 
@@ -176,6 +179,7 @@
             this.Seven.TabIndex = 10;
             this.Seven.Text = "7";
             this.Seven.UseVisualStyleBackColor = true;
+            this.Seven.Click += new System.EventHandler(this.Seven_Click);
             // 
             // Eight
             // 
@@ -186,6 +190,7 @@
             this.Eight.TabIndex = 11;
             this.Eight.Text = "8";
             this.Eight.UseVisualStyleBackColor = true;
+            this.Eight.Click += new System.EventHandler(this.Eight_Click);
             // 
             // Nine
             // 
@@ -196,6 +201,7 @@
             this.Nine.TabIndex = 12;
             this.Nine.Text = "9";
             this.Nine.UseVisualStyleBackColor = true;
+            this.Nine.Click += new System.EventHandler(this.Nine_Click);
             // 
             // Multiplication
             // 
@@ -217,6 +223,7 @@
             this.Four.TabIndex = 14;
             this.Four.Text = "4";
             this.Four.UseVisualStyleBackColor = true;
+            this.Four.Click += new System.EventHandler(this.Four_Click);
             // 
             // Five
             // 
@@ -227,6 +234,7 @@
             this.Five.TabIndex = 15;
             this.Five.Text = "5";
             this.Five.UseVisualStyleBackColor = true;
+            this.Five.Click += new System.EventHandler(this.Five_Click);
             // 
             // Six
             // 
@@ -237,6 +245,7 @@
             this.Six.TabIndex = 16;
             this.Six.Text = "6";
             this.Six.UseVisualStyleBackColor = true;
+            this.Six.Click += new System.EventHandler(this.Six_Click);
             // 
             // Subtraction
             // 
@@ -258,6 +267,7 @@
             this.One.TabIndex = 18;
             this.One.Text = "1";
             this.One.UseVisualStyleBackColor = true;
+            this.One.Click += new System.EventHandler(this.One_Click);
             // 
             // Two
             // 
@@ -268,6 +278,7 @@
             this.Two.TabIndex = 19;
             this.Two.Text = "2";
             this.Two.UseVisualStyleBackColor = true;
+            this.Two.Click += new System.EventHandler(this.Two_Click);
             // 
             // Three
             // 
@@ -278,6 +289,7 @@
             this.Three.TabIndex = 20;
             this.Three.Text = "3";
             this.Three.UseVisualStyleBackColor = true;
+            this.Three.Click += new System.EventHandler(this.Three_Click);
             // 
             // Addition
             // 
@@ -310,6 +322,7 @@
             this.Zero.TabIndex = 23;
             this.Zero.Text = "0";
             this.Zero.UseVisualStyleBackColor = true;
+            this.Zero.Click += new System.EventHandler(this.Zero_Click);
             // 
             // DecimalPoint
             // 
