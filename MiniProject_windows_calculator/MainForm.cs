@@ -95,6 +95,8 @@ namespace MiniProject_windows_calculator
             //값이 없다면 아무 실행 X
         }
 
+        private char past_operator = '='; // 이전 연산자 확인에 사용
+
         // 나누기 버튼
         private void Division_Click(object sender, EventArgs e)
         {
@@ -103,8 +105,17 @@ namespace MiniProject_windows_calculator
             {
                 ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
 
-                string result = elementaryArithmetic.division(RHS_Output.Text);
-                LHS_Output.Text += result;
+                // 수식에 추가할 항(수식 + 피연산자 연산자)
+                string add_term = elementaryArithmetic.division(RHS_Output.Text);
+                // 이전에 = 연산자를 입력했으면 = 좌항 정리
+                if (LHS_Output.Text.Length > 1 && LHS_Output.Text.Substring(LHS_Output.Text.Length - 1) == "=")
+                {
+                    LHS_Output.Text = add_term;
+                }
+                else
+                {
+                    LHS_Output.Text += add_term;
+                }
             }
         }
         
@@ -116,8 +127,17 @@ namespace MiniProject_windows_calculator
             {
                 ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
 
-                string result = elementaryArithmetic.multiplication(RHS_Output.Text);
-                LHS_Output.Text += result;
+                // 수식에 추가할 항(수식 + 피연산자 연산자)
+                string add_term = elementaryArithmetic.multiplication(RHS_Output.Text);
+                // 이전에 = 연산자를 입력했으면 = 좌항 정리
+                if (LHS_Output.Text.Length > 1 && LHS_Output.Text.Substring(LHS_Output.Text.Length - 1) == "=")
+                {
+                    LHS_Output.Text = add_term;
+                }
+                else
+                {
+                    LHS_Output.Text += add_term;
+                }
             }
         }
         
@@ -127,10 +147,19 @@ namespace MiniProject_windows_calculator
             // 피연산자 값(숫자)을 입력하지 않았거나 오류로 값이 사라진 상황에선 연산 실행 생략
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic(); 
+                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
 
-                string result = elementaryArithmetic.subtraction(RHS_Output.Text);
-                LHS_Output.Text += result;
+                // 수식에 추가할 항(수식 + 피연산자 연산자)
+                string add_term = elementaryArithmetic.subtraction(RHS_Output.Text);
+                // 이전에 = 연산자를 입력했으면 = 좌항 정리
+                if (LHS_Output.Text.Length > 1 && LHS_Output.Text.Substring(LHS_Output.Text.Length - 1) == "=")
+                {
+                    LHS_Output.Text = add_term;
+                }
+                else
+                {
+                    LHS_Output.Text += add_term;
+                }
             }
         }
 
@@ -142,8 +171,17 @@ namespace MiniProject_windows_calculator
             {
                 ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
 
-                string result = elementaryArithmetic.addition(RHS_Output.Text);
-                LHS_Output.Text += result;
+                // 수식에 추가할 항(수식 + 피연산자 연산자)
+                string add_term = elementaryArithmetic.addition(RHS_Output.Text);
+                // 이전에 = 연산자를 입력했으면 = 좌항 정리
+                if (LHS_Output.Text.Length > 1 && LHS_Output.Text.Substring(LHS_Output.Text.Length - 1) == "=") 
+                {
+                    LHS_Output.Text = add_term;
+                }
+                else
+                { 
+                    LHS_Output.Text += add_term; 
+                }
             }
         }
 
@@ -155,8 +193,9 @@ namespace MiniProject_windows_calculator
             {
                 ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
 
-                string result = elementaryArithmetic.assignment(RHS_Output.Text);
-                LHS_Output.Text += result;
+                string result = elementaryArithmetic.assignment(LHS_Output.Text, RHS_Output.Text);
+                LHS_Output.Text += RHS_Output.Text + " = ";
+                RHS_Output.Text = result;
             }
         }
 
