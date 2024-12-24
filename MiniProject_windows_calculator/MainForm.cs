@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace MiniProject_windows_calculator
 {
     public partial class Calculator : Form
@@ -60,7 +59,7 @@ namespace MiniProject_windows_calculator
             //현재 값 검사 후 숫자가 있으면 가져와서 제곱 함수 실행
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                string[] result = unaryOperations.Square(RHS_Output.Text,LHS_Output.Text);
+                string[] result = unaryOperations.Square(RHS_Output.Text, LHS_Output.Text);
                 RHS_Output.Text = result[0];
                 LHS_Output.Text = result[1];
             }
@@ -73,7 +72,7 @@ namespace MiniProject_windows_calculator
             //현재 값 검사 후 숫자가 있으면 가져와서 제곱근 함수 실행
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                string[] result = unaryOperations.Root(RHS_Output.Text,LHS_Output.Text);
+                string[] result = unaryOperations.Root(RHS_Output.Text, LHS_Output.Text);
                 RHS_Output.Text = result[0];
                 LHS_Output.Text = result[1];
             }
@@ -119,7 +118,7 @@ namespace MiniProject_windows_calculator
         private void Delete_Click(object sender, EventArgs e)
         {
             RHS_Output.Text = RHS_Output.Text.Remove(RHS_Output.Text.Length - 1);
-            if (RHS_Output.Text.Length == 0) RHS_Output.Text = "0"; 
+            if (RHS_Output.Text.Length == 0) RHS_Output.Text = "0";
         }
 
         //숫자 0 버튼
@@ -193,4 +192,3 @@ namespace MiniProject_windows_calculator
         }
     }
 }
-
