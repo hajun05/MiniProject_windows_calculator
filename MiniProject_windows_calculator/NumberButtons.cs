@@ -10,33 +10,42 @@ namespace MiniProject_windows_calculator
     internal class NumberButtons
     {
         // 숫자 0버튼
-        public string ZeroButton (string RHS_output, string LHS_output, string recentlyInput)
+        public string[] ZeroButton (string RHS_output, string LHS_output, string recentlyInput)
         {
             //RHS 값이 0일때는 그대로, RHS에 다른 숫자가 있으면 뒤에 이어붙이기
             //LHS 값에 연산자가 있으면 RHS 새로 시작 -> 안됨,, 연산자가 있을때 두자리수 이상 입력이 안먹음
             //최근 입력값이 뭔지 전달받아서 연산자(oper)면 새로운 수 입력
+            string[] result = new string[2];
             if (recentlyInput == "oper")
             {
                 RHS_output = "0".ToString();
             }
-            else
+            else if (recentlyInput == "num")
             {
                 if (RHS_output != "0")
                 {
                     RHS_output += "0";
                 }
             }
-            return RHS_output; 
+            else
+            {
+                LHS_output = "";
+                RHS_output = "0".ToString();
+            }
+            result[0]= RHS_output;
+            result[1]= LHS_output;
+            return result; 
         }
 
         // 숫자 1버튼
-        public string OneButton(string RHS_output, string LHS_output, string recentlyInput)
+        public string[] OneButton(string RHS_output, string LHS_output, string recentlyInput)
         {
+            string[] result = new string[2];
             if (recentlyInput == "oper")
             {
                 RHS_output = "1".ToString();
             }
-            else
+            else if (recentlyInput == "num")
             {
                 if (RHS_output != "0")
                 {
@@ -48,17 +57,26 @@ namespace MiniProject_windows_calculator
                     RHS_output = "1";
                 }
             }
-            return RHS_output;
+            else
+            {
+                LHS_output = "";
+                RHS_output = "1".ToString();
+            }
+            result[0] = RHS_output;
+            result[1] = LHS_output;
+            return result;
+
         }
 
         // 숫자 2버튼
-        public string TwoButton(string RHS_output, string LHS_output, string recentlyInput)
+        public string[] TwoButton(string RHS_output, string LHS_output, string recentlyInput)
         {
+            string[] result = new string[2];
             if (recentlyInput == "oper")
             {
                 RHS_output = "2".ToString();
             }
-            else
+            else if (recentlyInput == "num")
             {
                 if (RHS_output != "0")
                 {
@@ -70,17 +88,25 @@ namespace MiniProject_windows_calculator
                     RHS_output = "2";
                 }
             }
-            return RHS_output;
+            else
+            {
+                LHS_output = "";
+                RHS_output = "2".ToString();
+            }
+            result[0] = RHS_output;
+            result[1] = LHS_output;
+            return result;
         }
 
         //숫자 3버튼
-        public string ThreeButton(string RHS_output, string LHS_output, string recentlyInput)
+        public string[] ThreeButton(string RHS_output, string LHS_output, string recentlyInput)
         {
+            string[] result = new string[2];
             if (recentlyInput == "oper")
             {
                 RHS_output = "3".ToString();
             }
-            else
+            else if (recentlyInput == "num")
             {
                 if (RHS_output != "0")
                 {
@@ -92,17 +118,25 @@ namespace MiniProject_windows_calculator
                     RHS_output = "3";
                 }
             }
-            return RHS_output;
+            else
+            {
+                LHS_output = "";
+                RHS_output = "3".ToString();
+            }
+            result[0] = RHS_output;
+            result[1] = LHS_output;
+            return result;
         }
 
         // 숫자 4버튼
-        public string FourButton(string RHS_output, string LHS_output, string recentlyInput)
+        public string[] FourButton(string RHS_output, string LHS_output, string recentlyInput)
         {
+            string[] result = new string[2];
             if (recentlyInput == "oper")
             {
                 RHS_output = "4".ToString();
             }
-            else
+            else if (recentlyInput == "num")
             {
                 if (RHS_output != "0")
                 {
@@ -114,17 +148,25 @@ namespace MiniProject_windows_calculator
                     RHS_output = "4";
                 }
             }
-            return RHS_output;
+            else
+            {
+                LHS_output = "";
+                RHS_output = "4".ToString();
+            }
+            result[0] = RHS_output;
+            result[1] = LHS_output;
+            return result;
         }
 
         //숫자 5버튼
-        public string FiveButton(string RHS_output, string LHS_output, string recentlyInput)
+        public string[] FiveButton(string RHS_output, string LHS_output, string recentlyInput)
         {
+            string[] result = new string[2];
             if (recentlyInput == "oper")
             {
                 RHS_output = "5".ToString();
             }
-            else
+            else if (recentlyInput == "num")
             {
                 if (RHS_output != "0")
                 {
@@ -136,17 +178,25 @@ namespace MiniProject_windows_calculator
                     RHS_output = "5";
                 }
             }
-            return RHS_output;
+            else
+            {
+                LHS_output = "";
+                RHS_output = "5".ToString();
+            }
+            result[0] = RHS_output;
+            result[1] = LHS_output;
+            return result;
         }
 
         //숫자 6버튼
-        public string SixButton(string RHS_output, string LHS_output, string recentlyInput)
+        public string[] SixButton(string RHS_output, string LHS_output, string recentlyInput)
         {
+            string[] result = new string[2];
             if (recentlyInput == "oper")
             {
                 RHS_output = "6";
             }
-            else
+            else if (recentlyInput == "num")
             {
                 if (RHS_output != "0")
                 {
@@ -158,17 +208,25 @@ namespace MiniProject_windows_calculator
                     RHS_output = "6";
                 }
             }
-            return RHS_output;
+            else
+            {
+                LHS_output = "";
+                RHS_output = "6".ToString();
+            }
+            result[0] = RHS_output;
+            result[1] = LHS_output;
+            return result;
         }
 
         //숫자 7버튼
-        public string SevenButton(string RHS_output, string LHS_output, string recentlyInput)
+        public string[] SevenButton(string RHS_output, string LHS_output, string recentlyInput)
         {
+            string[] result = new string[2];
             if (recentlyInput == "oper")
             {
                 RHS_output = "7".ToString();
             }
-            else
+            else if (recentlyInput == "num")
             {
                 if (RHS_output != "0")
                 {
@@ -180,17 +238,25 @@ namespace MiniProject_windows_calculator
                     RHS_output = "7";
                 }
             }
-            return RHS_output;
+            else
+            {
+                LHS_output = "";
+                RHS_output = "7".ToString();
+            }
+            result[0] = RHS_output;
+            result[1] = LHS_output;
+            return result;
         }
 
         //숫자 8버튼
-        public string EightButton(string RHS_output, string LHS_output, string recentlyInput)
+        public string[] EightButton(string RHS_output, string LHS_output, string recentlyInput)
         {
+            string[] result = new string[2];
             if (recentlyInput == "oper")
             {
                 RHS_output = "8".ToString();
             }
-            else
+            else if (recentlyInput == "num")
             {
                 if (RHS_output != "0")
                 {
@@ -202,17 +268,25 @@ namespace MiniProject_windows_calculator
                     RHS_output = "8";
                 }
             }
-            return RHS_output;
+            else
+            {
+                LHS_output = "";
+                RHS_output = "8".ToString();
+            }
+            result[0] = RHS_output;
+            result[1] = LHS_output;
+            return result;
         }
 
         //숫자 9버튼
-        public string NineButton(string RHS_output, string LHS_output, string recentlyInput)
+        public string[] NineButton(string RHS_output, string LHS_output, string recentlyInput)
         {
+            string[] result = new string[2];
             if (recentlyInput == "oper")
             {
                 RHS_output = "9".ToString();
             }
-            else
+            else if (recentlyInput == "num")
             {
                 if (RHS_output != "0")
                 {
@@ -224,7 +298,14 @@ namespace MiniProject_windows_calculator
                     RHS_output = "9";
                 }
             }
-            return RHS_output;
+            else
+            {
+                LHS_output = "";
+                RHS_output = "9".ToString();
+            }
+            result[0] = RHS_output;
+            result[1] = LHS_output;
+            return result;
         }
     }
 }
