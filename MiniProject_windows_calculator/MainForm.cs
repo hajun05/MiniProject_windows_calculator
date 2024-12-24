@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 namespace MiniProject_windows_calculator
 {
     public partial class Calculator : Form
@@ -17,7 +16,6 @@ namespace MiniProject_windows_calculator
             InitializeComponent();
             RHS_Output.Text = "0";
         }
-
         // %버튼
         private void Modulo_Click(object sender, EventArgs e)
         {
@@ -30,7 +28,6 @@ namespace MiniProject_windows_calculator
             }
             //값이 없다면 아무 실행 X
         }
-
         //분수 버튼(1/x)
         private void Fraction_Click(object sender, EventArgs e)
         {
@@ -43,7 +40,6 @@ namespace MiniProject_windows_calculator
             }
             //값이 없다면 아무 실행 X
         }
-
         //제곱 버튼 x^2
         private void SQR_Click(object sender, EventArgs e)
         {
@@ -56,8 +52,7 @@ namespace MiniProject_windows_calculator
             }
             //값이 없다면 아무 실행 X
         }
-
-        //제곱근 버튼 
+        //제곱근 버튼
         private void SquareRoot_Click(object sender, EventArgs e)
         {
             UnaryOperations unaryOperations = new UnaryOperations();
@@ -69,7 +64,6 @@ namespace MiniProject_windows_calculator
             }
             //값이 없다면 아무 실행 X
         }
-
         //소수점 버튼
         private void DecimalPoint_Click(object sender, EventArgs e)
         {
@@ -79,9 +73,7 @@ namespace MiniProject_windows_calculator
                 string result = additionalFunction.DecimalPoint(RHS_Output.Text);
                 RHS_Output.Text = result;
             }
-
         }
-
         //음수양수로 바꾸기
         private void PlusMinus_Click(object sender, EventArgs e)
         {
@@ -94,9 +86,7 @@ namespace MiniProject_windows_calculator
             }
             //값이 없다면 아무 실행 X
         }
-
         private char past_operator = '='; // 이전 연산자 확인에 사용
-
         // 나누기 버튼
         private void Division_Click(object sender, EventArgs e)
         {
@@ -104,21 +94,11 @@ namespace MiniProject_windows_calculator
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
                 ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
-
                 // 수식에 추가할 항(수식 + 피연산자 연산자)
-                string add_term = elementaryArithmetic.division(RHS_Output.Text);
-                // 이전에 = 연산자를 입력했으면 = 좌항 정리
-                if (LHS_Output.Text.Length > 1 && LHS_Output.Text.Substring(LHS_Output.Text.Length - 1) == "=")
-                {
-                    LHS_Output.Text = add_term;
-                }
-                else
-                {
-                    LHS_Output.Text += add_term;
-                }
+                LHS_Output.Text = elementaryArithmetic.division(LHS_Output.Text, RHS_Output.Text, past_operator);
+                past_operator = '÷';
             }
         }
-        
         // 곱하기 버튼
         private void Multiplication_Click(object sender, EventArgs e)
         {
@@ -126,21 +106,11 @@ namespace MiniProject_windows_calculator
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
                 ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
-
                 // 수식에 추가할 항(수식 + 피연산자 연산자)
-                string add_term = elementaryArithmetic.multiplication(RHS_Output.Text);
-                // 이전에 = 연산자를 입력했으면 = 좌항 정리
-                if (LHS_Output.Text.Length > 1 && LHS_Output.Text.Substring(LHS_Output.Text.Length - 1) == "=")
-                {
-                    LHS_Output.Text = add_term;
-                }
-                else
-                {
-                    LHS_Output.Text += add_term;
-                }
+                LHS_Output.Text = elementaryArithmetic.multiplication(LHS_Output.Text, RHS_Output.Text, past_operator);
+                past_operator = '×';
             }
         }
-        
         // 빼기 버튼
         private void Subtraction_Click(object sender, EventArgs e)
         {
@@ -148,21 +118,11 @@ namespace MiniProject_windows_calculator
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
                 ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
-
                 // 수식에 추가할 항(수식 + 피연산자 연산자)
-                string add_term = elementaryArithmetic.subtraction(RHS_Output.Text);
-                // 이전에 = 연산자를 입력했으면 = 좌항 정리
-                if (LHS_Output.Text.Length > 1 && LHS_Output.Text.Substring(LHS_Output.Text.Length - 1) == "=")
-                {
-                    LHS_Output.Text = add_term;
-                }
-                else
-                {
-                    LHS_Output.Text += add_term;
-                }
+                LHS_Output.Text = elementaryArithmetic.subtraction(LHS_Output.Text, RHS_Output.Text, past_operator);
+                past_operator = '−';
             }
         }
-
         // 더하기 버튼
         private void Addition_Click(object sender, EventArgs e)
         {
@@ -170,21 +130,11 @@ namespace MiniProject_windows_calculator
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
                 ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
-
                 // 수식에 추가할 항(수식 + 피연산자 연산자)
-                string add_term = elementaryArithmetic.addition(RHS_Output.Text);
-                // 이전에 = 연산자를 입력했으면 = 좌항 정리
-                if (LHS_Output.Text.Length > 1 && LHS_Output.Text.Substring(LHS_Output.Text.Length - 1) == "=") 
-                {
-                    LHS_Output.Text = add_term;
-                }
-                else
-                { 
-                    LHS_Output.Text += add_term; 
-                }
+                LHS_Output.Text = elementaryArithmetic.addition(LHS_Output.Text, RHS_Output.Text, past_operator);
+                past_operator = '+';
             }
         }
-
         // = 버튼. 수식의 계산값 출력
         private void Assignment_Click(object sender, EventArgs e)
         {
@@ -192,19 +142,17 @@ namespace MiniProject_windows_calculator
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
                 ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
-
-                string result = elementaryArithmetic.assignment(LHS_Output.Text, RHS_Output.Text);
+                string result = elementaryArithmetic.assignment(LHS_Output.Text, RHS_Output.Text, past_operator);
                 LHS_Output.Text += RHS_Output.Text + " = ";
                 RHS_Output.Text = result;
+                past_operator = '=';
             }
         }
-
         // LHS_Output창에 직접 입력(커서) 방지
         private void LHS_Output_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true; 
+            e.Handled = true;
         }
-
         // RHS_Output창에 숫자, 백스페이스, 소수점 이외 직접 입력(커서) 방지
         private void RHS_Output_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -215,10 +163,9 @@ namespace MiniProject_windows_calculator
             }
             if (!(char.IsDigit(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back) || e.KeyChar == '.'))
             {
-                e.Handled = true; 
+                e.Handled = true;
             }
         }
-
         private void RHS_Output_Enter(object sender, EventArgs e)
         {
             // RHS 출력값이 ""(모든 입력값 삭제)한 상태일 때 "0"으로 수정. RHS 출력값이 완전히 비는 상황 방지
@@ -231,4 +178,3 @@ namespace MiniProject_windows_calculator
         }
     }
 }
-
