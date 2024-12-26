@@ -19,6 +19,7 @@ namespace MiniProject_windows_calculator
 
         //변수
         string recentlyInput; // 숫자면 num, 연산자면 oper, =일때는 =
+        private char past_operator = '='; // 이전 연산자 확인에 사용
 
         public Calculator()
         {
@@ -226,16 +227,15 @@ namespace MiniProject_windows_calculator
             recentlyInput = "num";
         }
 
-        private char past_operator = '='; // 이전 연산자 확인에 사용
         // 나누기 버튼
         private void Division_Click(object sender, EventArgs e)
         {
             // 피연산자 값(숫자)을 입력하지 않았거나 오류로 값이 사라진 상황에선 연산 실행 생략
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic('÷');
                 // 수식에 추가할 항(수식 + 피연산자 연산자)
-                LHS_Output.Text = elementaryArithmetic.division(LHS_Output.Text, RHS_Output.Text, past_operator);
+                LHS_Output.Text = elementaryArithmetic.Arithmetic(LHS_Output.Text, RHS_Output.Text, past_operator);
                 past_operator = '÷';
                 recentlyInput = "oper";
             }
@@ -246,9 +246,9 @@ namespace MiniProject_windows_calculator
             // 피연산자 값(숫자)을 입력하지 않았거나 오류로 값이 사라진 상황에선 연산 실행 생략
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic('×');
                 // 수식에 추가할 항(수식 + 피연산자 연산자)
-                LHS_Output.Text = elementaryArithmetic.multiplication(LHS_Output.Text, RHS_Output.Text, past_operator);
+                LHS_Output.Text = elementaryArithmetic.Arithmetic(LHS_Output.Text, RHS_Output.Text, past_operator);
                 past_operator = '×';
                 recentlyInput = "oper";
             }
@@ -259,9 +259,9 @@ namespace MiniProject_windows_calculator
             // 피연산자 값(숫자)을 입력하지 않았거나 오류로 값이 사라진 상황에선 연산 실행 생략
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic('−');
                 // 수식에 추가할 항(수식 + 피연산자 연산자)
-                LHS_Output.Text = elementaryArithmetic.subtraction(LHS_Output.Text, RHS_Output.Text, past_operator);
+                LHS_Output.Text = elementaryArithmetic.Arithmetic(LHS_Output.Text, RHS_Output.Text, past_operator);
                 past_operator = '−';
                 recentlyInput = "oper";
             }
@@ -272,9 +272,9 @@ namespace MiniProject_windows_calculator
             // 피연산자 값(숫자)을 입력하지 않았거나 오류로 값이 사라진 상황에선 연산 실행 생략
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
+                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic('+');
                 // 수식에 추가할 항(수식 + 피연산자 연산자)
-                LHS_Output.Text = elementaryArithmetic.addition(LHS_Output.Text, RHS_Output.Text, past_operator);
+                LHS_Output.Text = elementaryArithmetic.Arithmetic(LHS_Output.Text, RHS_Output.Text, past_operator);
                 past_operator = '+';
                 recentlyInput = "oper";
             }
@@ -285,8 +285,8 @@ namespace MiniProject_windows_calculator
             // 피연산자 값(숫자)을 입력하지 않았거나 오류로 값이 사라진 상황에선 연산 실행 생략
             if (RHS_Output.Text != "" && RHS_Output.Text != "0으로 나눌 수 없습니다.")
             {
-                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic();
-                string result = elementaryArithmetic.assignment(LHS_Output.Text, RHS_Output.Text, past_operator);
+                ElementaryArithmetic elementaryArithmetic = new ElementaryArithmetic('=');
+                string result = elementaryArithmetic.Assignment(LHS_Output.Text, RHS_Output.Text, past_operator);
                 if (past_operator == '_')
                     LHS_Output.Text = RHS_Output.Text + " = ";
                 else

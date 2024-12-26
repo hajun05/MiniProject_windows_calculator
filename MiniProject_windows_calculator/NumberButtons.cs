@@ -128,7 +128,7 @@ namespace MiniProject_windows_calculator
             return result;
         }
 
-        // 숫자 4버튼
+        //숫자 4버튼
         public string[] FourButton(string RHS_output, string LHS_output, string recentlyInput)
         {
             string[] result = new string[2];
